@@ -7,14 +7,14 @@ import org.junit.Test;
 public class ComputePalindromeTest {
 
 	@Test
-	public void testIsPalindromo() {
+	public void testIsPalindrome() {
 		ComputePalindrome validatePalindrome = new ComputePalindrome();
 		boolean result = validatePalindrome.isPalindrome(121);
 		assertEquals(true, result);
 	}
 
 	@Test
-	public void testIsPalindromoFail() {
+	public void testIsPalindromeFail() {
 		ComputePalindrome validatePalindrome = new ComputePalindrome();
 		boolean result = validatePalindrome.isPalindrome(195);
 		assertEquals(false, result);
@@ -31,7 +31,15 @@ public class ComputePalindromeTest {
 	public void testComputePalindromeStringOK() {
 		ComputePalindrome validatePalindrome = new ComputePalindrome();
 		String result = validatePalindrome.computePalindrome("195");
-		assertEquals("9339", result);
+		assertEquals("4 9339", result);
+	}
+	
+	@Test
+	public void testComputePalindromeStringFromFileOK() {
+		ComputePalindrome validatePalindrome = new ComputePalindrome();
+		String filePath = "./src/test/resources/simplePalindromeOK";
+		String[] result = validatePalindrome.computePalindromeFromFile(filePath);
+		assertEquals("4 9339", result[0]);
 	}
 
 }

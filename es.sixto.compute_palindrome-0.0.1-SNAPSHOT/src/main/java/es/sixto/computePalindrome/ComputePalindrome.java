@@ -45,7 +45,13 @@ public class ComputePalindrome {
 	}
 	
 
-	public String computePalindrome(String string) {
+	public String computePalindrome(String numberToCompute) {
+		int number = Integer.parseInt(numberToCompute);
+		int result = this.computePalindrome(number);
+		return iterations+" "+result;
+	}
+
+	public String[] computePalindromeFromFile(String filePath) {
 		// TODO Auto-generated method stub
 		return null;
 	}
