@@ -7,6 +7,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.math.BigInteger;
 import java.util.ArrayList;
 
 /**
@@ -25,31 +26,30 @@ public class ComputePalindrome {
 
 	}
 
-	public boolean isPalindrome(long intToValidate) {
-		long reversed = reverseNumber(intToValidate);
-		return intToValidate==reversed;
+	public boolean isPalindrome(BigInteger intToValidate) {
+		BigInteger reversed = reverseNumber(intToValidate);
+		return intToValidate.compareTo(reversed)==0;
 	}
 
-	private long reverseNumber(long intToValidate) {
-		long reversed = 0;
-		long rest = 0;
-		long tempNumber = intToValidate;
-		while (tempNumber>0) {
-			rest = tempNumber%10;
-			reversed = reversed*10+rest;
-			tempNumber = tempNumber/10;
+	private BigInteger reverseNumber(BigInteger intToValidate) {
+		BigInteger reversed = BigInteger.ZERO;
+		BigInteger rest = BigInteger.ZERO;
+		BigInteger tempNumber = intToValidate;
+		while (tempNumber.compareTo(BigInteger.ZERO)>0) {
+			rest = tempNumber.mod(new BigInteger("10"));
+			reversed = reversed.multiply(new BigInteger("10")).add(rest);
+			tempNumber = tempNumber.divide(new BigInteger("10"));
 		}
 		return reversed;
 	}
 
-	public long computePalindrome(long numberToCompute) {
+	public BigInteger computePalindrome(BigInteger numberToCompute) {
 		if (!this.isPalindrome(numberToCompute)) {
 			iterations++;
 			if (iterations>1000) {
-				return -1;
+				return new BigInteger("-1");
 			}
-			System.out.println(iterations+" "+numberToCompute);
-			return computePalindrome(numberToCompute+reverseNumber(numberToCompute));
+			return computePalindrome(numberToCompute.add(reverseNumber(numberToCompute)));
 		}
 		return numberToCompute;
 	}
@@ -57,9 +57,9 @@ public class ComputePalindrome {
 
 	public String computePalindrome(String numberToCompute) {
 		iterations=0;
-		int number = Integer.parseInt(numberToCompute);
-		long result = this.computePalindrome(number);
-		return iterations+" "+result;
+		BigInteger number = new BigInteger(numberToCompute);
+		BigInteger result = this.computePalindrome(number);
+		return iterations+" "+result.toString();
 	}
 
 	public String[] computePalindromeFromFile(String pathToFile) {

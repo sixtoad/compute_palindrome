@@ -2,29 +2,33 @@ package es.sixto.computePalindrome;
 
 import static org.junit.Assert.*;
 
+import java.math.BigInteger;
+
 import org.junit.Test;
+
+import es.sixto.validparenthesses.ValidParenthesses;
 
 public class ComputePalindromeTest {
 
 	@Test
 	public void testIsPalindrome() {
 		ComputePalindrome validatePalindrome = new ComputePalindrome();
-		boolean result = validatePalindrome.isPalindrome(121);
+		boolean result = validatePalindrome.isPalindrome(new BigInteger("121"));
 		assertEquals(true, result);
 	}
 
 	@Test
 	public void testIsPalindromeFail() {
 		ComputePalindrome validatePalindrome = new ComputePalindrome();
-		boolean result = validatePalindrome.isPalindrome(195);
+		boolean result = validatePalindrome.isPalindrome(new BigInteger("195"));
 		assertEquals(false, result);
 	}
 	
 	@Test
 	public void testComputePalindromeOK() {
 		ComputePalindrome validatePalindrome = new ComputePalindrome();
-		long result = validatePalindrome.computePalindrome(195);
-		assertEquals(9339L, result);
+		BigInteger result = validatePalindrome.computePalindrome(new BigInteger("195"));
+		assertEquals(new BigInteger("9339"), result);
 	}
 	
 	@Test
@@ -53,5 +57,24 @@ public class ComputePalindromeTest {
 		assertEquals("4 9339", result[1]);
 		assertEquals("2 121", result[2]);
 		assertEquals("24 8813200023188", result[3]);
+		assertEquals("23 8813200023188", result[4]);
+		assertEquals("1001 -1", result[5]);
+	}
+	
+	@Test
+	public void testMainMehodOK () {
+		String pathToFile = "./src/test/resources/complexPalindromeOK";
+		ComputePalindrome validator = new ComputePalindrome();
+		String[] args = new String[1];
+		args[0] = pathToFile;
+		String result = validator.run(args);
+		StringBuffer expected = new StringBuffer();
+		expected.append("1 11\n");
+		expected.append("4 9339\n");
+		expected.append("2 121\n");
+		expected.append("24 8813200023188\n");
+		expected.append("23 8813200023188\n");
+		expected.append("1001 -1\n");
+		assertEquals("Must be valid", expected.toString(), result);
 	}
 }
