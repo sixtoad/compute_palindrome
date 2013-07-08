@@ -8,6 +8,8 @@ package es.sixto.computePalindrome;
  *
  */
 public class ComputePalindrome {
+	
+	public int iterations = 0;
 
 	/**
 	 * @param args
@@ -18,6 +20,11 @@ public class ComputePalindrome {
 	}
 
 	public boolean isPalindrome(int intToValidate) {
+		int reversed = reverseNumber(intToValidate);
+		return intToValidate==reversed;
+	}
+
+	private int reverseNumber(int intToValidate) {
 		int reversed = 0;
 		int rest = 0;
 		int tempNumber = intToValidate;
@@ -26,12 +33,15 @@ public class ComputePalindrome {
 			reversed = reversed*10+rest;
 			tempNumber = tempNumber/10;
 		}
-		return intToValidate==reversed;
+		return reversed;
 	}
 
-	public int computePalindrome(int i) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int computePalindrome(int numberToCompute) {
+		if (!this.isPalindrome(numberToCompute)) {
+			iterations++;
+			return computePalindrome(numberToCompute+reverseNumber(numberToCompute));
+		}
+		return numberToCompute;
 	}
 
 }

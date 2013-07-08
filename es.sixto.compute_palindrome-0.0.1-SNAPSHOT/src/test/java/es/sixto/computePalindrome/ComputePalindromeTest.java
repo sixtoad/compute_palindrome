@@ -16,12 +16,12 @@ public class ComputePalindromeTest {
 	@Test
 	public void testIsPalindromoFail() {
 		ComputePalindrome validatePalindrome = new ComputePalindrome();
-		boolean result = validatePalindrome.isPalindrome(122);
+		boolean result = validatePalindrome.isPalindrome(195);
 		assertEquals(false, result);
 	}
 	
 	@Test
-	public void testComputePalindrome() {
+	public void testComputePalindromeOK() {
 		ComputePalindrome validatePalindrome = new ComputePalindrome();
 		int result = validatePalindrome.computePalindrome(195);
 		assertEquals(9339, result);
