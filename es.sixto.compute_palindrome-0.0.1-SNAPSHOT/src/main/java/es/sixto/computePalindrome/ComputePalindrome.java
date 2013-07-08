@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.math.BigInteger;
 import java.util.ArrayList;
 
+
 /**
  * @author Sixto
  *
@@ -22,8 +23,7 @@ public class ComputePalindrome {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		System.out.println(new ComputePalindrome().run(args));
 	}
 
 	public boolean isPalindrome(BigInteger intToValidate) {
@@ -89,6 +89,21 @@ public class ComputePalindrome {
 			}
 		}
 		return processesLines.toArray(new String[processesLines.size()]);
+	}
+
+	public String run (String[] args) {
+		String result = null;
+		if (args.length>0) {
+			String[] resultArray = this.computePalindromeFromFile(args[0]);
+			StringBuffer tempString = new StringBuffer();
+			for (int i = 0; i < resultArray.length; i++) {
+				tempString.append(resultArray[i]+"\n");
+			}
+			result = tempString.toString();
+		} else {
+			result = "You must to pass a valid path for a file to process";
+		}
+		return result;
 	}
 
 }

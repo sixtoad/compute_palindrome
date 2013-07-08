@@ -6,7 +6,6 @@ import java.math.BigInteger;
 
 import org.junit.Test;
 
-import es.sixto.validparenthesses.ValidParenthesses;
 
 public class ComputePalindromeTest {
 
