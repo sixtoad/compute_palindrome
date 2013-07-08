@@ -25,15 +25,15 @@ public class ComputePalindrome {
 
 	}
 
-	public boolean isPalindrome(int intToValidate) {
-		int reversed = reverseNumber(intToValidate);
+	public boolean isPalindrome(long intToValidate) {
+		long reversed = reverseNumber(intToValidate);
 		return intToValidate==reversed;
 	}
 
-	private int reverseNumber(int intToValidate) {
-		int reversed = 0;
-		int rest = 0;
-		int tempNumber = intToValidate;
+	private long reverseNumber(long intToValidate) {
+		long reversed = 0;
+		long rest = 0;
+		long tempNumber = intToValidate;
 		while (tempNumber>0) {
 			rest = tempNumber%10;
 			reversed = reversed*10+rest;
@@ -42,9 +42,13 @@ public class ComputePalindrome {
 		return reversed;
 	}
 
-	public int computePalindrome(int numberToCompute) {
+	public long computePalindrome(long numberToCompute) {
 		if (!this.isPalindrome(numberToCompute)) {
 			iterations++;
+			if (iterations>1000) {
+				return -1;
+			}
+			System.out.println(iterations+" "+numberToCompute);
 			return computePalindrome(numberToCompute+reverseNumber(numberToCompute));
 		}
 		return numberToCompute;
@@ -54,7 +58,7 @@ public class ComputePalindrome {
 	public String computePalindrome(String numberToCompute) {
 		iterations=0;
 		int number = Integer.parseInt(numberToCompute);
-		int result = this.computePalindrome(number);
+		long result = this.computePalindrome(number);
 		return iterations+" "+result;
 	}
 

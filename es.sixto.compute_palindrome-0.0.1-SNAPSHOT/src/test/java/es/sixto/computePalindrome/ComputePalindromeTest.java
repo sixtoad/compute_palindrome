@@ -23,8 +23,8 @@ public class ComputePalindromeTest {
 	@Test
 	public void testComputePalindromeOK() {
 		ComputePalindrome validatePalindrome = new ComputePalindrome();
-		int result = validatePalindrome.computePalindrome(195);
-		assertEquals(9339, result);
+		long result = validatePalindrome.computePalindrome(195);
+		assertEquals(9339L, result);
 	}
 	
 	@Test
@@ -52,6 +52,6 @@ public class ComputePalindromeTest {
 		assertEquals("1 11", result[0]);
 		assertEquals("4 9339", result[1]);
 		assertEquals("2 121", result[2]);
-		assertEquals("24 8813200023188", result[2]);
+		assertEquals("24 8813200023188", result[3]);
 	}
 }
