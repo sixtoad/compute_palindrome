@@ -32,6 +32,8 @@ public class ComputePalindromeTest {
 		ComputePalindrome validatePalindrome = new ComputePalindrome();
 		String result = validatePalindrome.computePalindrome("195");
 		assertEquals("4 9339", result);
+		result = validatePalindrome.computePalindrome("121");
+		assertEquals("0 121", result);
 	}
 	
 	@Test
