@@ -7,8 +7,10 @@ import org.junit.Test;
 public class ComputePalindromeTest {
 
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void testIsPalindromo() {
+		ComputePalindrome validatePalindrome = new ComputePalindrome();
+		boolean result = validatePalindrome.isPalindrome(121);
 	}
+
 
 }

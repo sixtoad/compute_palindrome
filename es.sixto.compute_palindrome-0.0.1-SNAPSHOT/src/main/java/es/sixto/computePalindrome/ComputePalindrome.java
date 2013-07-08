@@ -17,4 +17,8 @@ public class ComputePalindrome {
 
 	}
 
+	public boolean isPalindrome(int i) {
+		return true;
+	}
+
 }
