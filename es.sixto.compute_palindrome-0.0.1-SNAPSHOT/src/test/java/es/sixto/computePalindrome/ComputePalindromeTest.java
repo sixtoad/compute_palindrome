@@ -26,5 +26,12 @@ public class ComputePalindromeTest {
 		int result = validatePalindrome.computePalindrome(195);
 		assertEquals(9339, result);
 	}
+	
+	@Test
+	public void testComputePalindromeStringOK() {
+		ComputePalindrome validatePalindrome = new ComputePalindrome();
+		String result = validatePalindrome.computePalindrome("195");
+		assertEquals("9339", result);
+	}
 
 }

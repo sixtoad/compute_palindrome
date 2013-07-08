@@ -43,5 +43,11 @@ public class ComputePalindrome {
 		}
 		return numberToCompute;
 	}
+	
+
+	public String computePalindrome(String string) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }
