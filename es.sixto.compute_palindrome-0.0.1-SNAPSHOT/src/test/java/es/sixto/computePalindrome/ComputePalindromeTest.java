@@ -43,5 +43,15 @@ public class ComputePalindromeTest {
 		String[] result = validatePalindrome.computePalindromeFromFile(filePath);
 		assertEquals("4 9339", result[0]);
 	}
-
+	
+	@Test
+	public void testComputePalindromeStringFromFileComplexOK() {
+		ComputePalindrome validatePalindrome = new ComputePalindrome();
+		String filePath = "./src/test/resources/complexPalindromeOK";
+		String[] result = validatePalindrome.computePalindromeFromFile(filePath);
+		assertEquals("1 11", result[0]);
+		assertEquals("4 9339", result[1]);
+		assertEquals("2 121", result[2]);
+		assertEquals("24 8813200023188", result[2]);
+	}
 }
